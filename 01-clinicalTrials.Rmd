@@ -1,0 +1,123 @@
+# Analysis of Clinical Trials with R {#clinicalTrials}
+
+## Why use R in Clinical Trials analysis when there is other software avilable.
+
+R is an open source software widely accepted as the  [*lingua franca* of statistics](http://blog.revolutionanalytics.com/r-is-hot/). Interestingly it's use in clinical research has not happened at the same pace as in other disciplines. The field has gravitated mostly to propietary software like [SAS](https://www.sas.com/en_us/software/stat.html) or [SPSS](https://www.ibm.com/analytics/spss-statistics-software) to name a few.
+
+R offers very powerful analytical tools in a modular format (which keep the software as light as possible for the computer performing the analysis) while costing no money to be able to use it (most of the analytical software used in clinical research is proprietary and licences are very expensive). It can also be adjusted to specific needs through the generation of new functions and analytical pipelines.
+
+One of the main concerns with clinical trials is the regulatory compliance of the software to FDA rules. The R Foundation for Statistical Computing [published a document](https://www.r-project.org/doc/R-FDA.pdf) offeing guidance in this specific topic, the document is updated regularly to stay relevant in the clinical trials environment.
+
+## Simulated Clinical Trial
+
+The following is a simulation of a clinical trial to exemplify the use of R in this context. The simulation will be of a simple two-arm clinical trial to compare a new drug to placebo on reducing diastolic blood pressure in hypertensive adult men.
+
+We will assume that an appropriate power analysis indicated the sample size required to detect a specified treatment difference is $n=100$ for both treatment groups. For these $n$ participants, we record their age and measure baeline diastolic blood pressure just before randomization.
+
+The new drug and placebo are administered and blood pressure is measured and recorded periodically thereafter, including at the end of the trial. Then the change in blood pressure between the endpoint and baselina may be calculated and analyzed as an index of the antihypertensive efficacy of the new drug.
+
+### Simulating Data
+
+We are assuming that baseline diastolic blood pressures for the 200 recruited participants are normally distributed with a mean $\mu = 100mmHg$ and a standard deviation $\sigma = 10mmHg$. Regarding age we are assuming a normally distribution with mean $\mu = 50$ years, with a standard deviation $\sigma = 10$ years. We are also assuming that the new drug will decrease diastolic blood pressure by 20 mmHg ($\mu = 20$):
+```{r}
+n      = 100
+mu     = 100
+sd     = 10
+mu.d   = 20
+age.mu = 50
+age.sd = 10
+```
+
+#### Placebo simulations
+```{r}
+# setting seed for random number generation
+set.seed(123)
+
+age         = rnorm(n, age.mu, age.sd)
+bp.base     = rnorm(n,mu,sd)
+bp.end      = rnorm(n,mu,sd)
+# take the difference between endpoint and baseline
+bp.diff     = bp.end-bp.base
+# put the data together using "cbind" to column-bind
+dat4placebo = round(cbind(age,bp.base,bp.end,bp.diff))
+head(dat4placebo)
+```
+In the previous table, the results of the first 6 (out of 100 from the placebo subset) simulated participants are shown.
+
+#### New drug simulations
+```{r}
+age      = rnorm(n, age.mu, age.sd)
+bp.base  = rnorm(n,mu,sd)
+bp.end   = rnorm(n,mu-mu.d,sd)
+bp.diff  = bp.end-bp.base
+dat4drug = round(cbind(age,bp.base,bp.end,bp.diff))
+head(dat4drug)
+```
+
+#### Integration of dataset
+Now to have all results in one structure we will stack the two data sets and add one more variable (column) to the resulting dataset, this new variable will be a nominal value indicating if the patient belongs to the placebo or new drug subgroups.
+```{r}
+# dataframe holding all data
+dat     = data.frame(rbind(dat4placebo,dat4drug))
+#  "trt" as a factor for treatment.
+dat$trt = as.factor(rep(c("Placebo", "Drug"), each=n))
+head(dat)
+```
+
+### Visualization of data
+#### Basic graphs
+```{r}
+boxplot(dat4placebo, las=1, main="Placebo")
+```
+
+```{r}
+boxplot(dat4drug, las=1, main="New Drug")
+```
+
+
+From these graphs we can see that the data generated is indeed normally distributed.
+
+#### More detailed graphs
+
+Before moving to inferential statistical tools, a more detailed visualization is recomended, to undestand a bit more the dynamnics of the data.
+
+```{r}
+#load the lattice library
+library(lattice)
+# call xyplot function and print it
+print(xyplot(bp.diff~age|trt, data=dat,xlab="Age", 
+strip=strip.custom(bg="white"), 
+ylab="Blood Pressure Difference",lwd=3,cex=1.3,pch=20,
+type=c("p", "r")))
+
+```
+
+When dealing with blood pressure (BP), there is a reasonable argument to link higher values of BP results with older participants, given the pathophysiology of blood preassure and the stiffening of arteries in older patients. The previous graph clarifies that, in this case, BP results are not being affected by age. Nevertheless, it seems the new drug did lower blood pressur in those who took it.
+
+### Inferential statistics
+
+After getting acquainted with the data through visualizations, a numerical analysis can be preformed. Staying with a linear approach, we start with a general statistical model as follows:
+
+$$y=\beta_0 + \beta_1 \times trt + \beta_2 \times age + \beta_3age \times trt + \epsilon$$
+
+Where:
+
+ - $y=$ change in blood pressure.
+ - $\beta_0, \beta_1, \beta_2, \beta_3=$ parameters.
+ - $\epsilon =$ error, assumed to be [independently identically distributed](https://en.wikipedia.org/wiki/Independent_and_identically_distributed_random_variables).
+```{r}
+lm1 = lm(bp.diff~trt*age, data=dat)
+summary(lm1)
+```
+ 
+ 
+ Making the table easier to the eye:
+
+![](tableANOVA.png)
+
+#### Diagnostics for model assumptions
+```{r}
+layout(matrix(1:4, nrow=2))
+plot(lm1)
+```
+

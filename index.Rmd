@@ -1,0 +1,21 @@
+--- 
+title: "Data Analytics for Clinical Practice and Research"
+#subtitle: "Examples developed for the Division of Trauma & Acute Care Surgery of the Loma Linda University Medical Center"
+author: "Gener J Aviles-Rodriguez"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+#bibliography: [book.bib, packages.bib]
+#bibliography: book.bib
+biblio-style: apalike
+link-citations: yes
+github-repo: rstudio/bookdown-demo
+#description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
+---
+
+# Introduction
+
+The following examples and implementations have been developed to be presented at the Division of Trauma & Acute Care Surgery of the Loma Linda University Medical Center.
+
+Eventhough these implementations are not intended to be an exhaustive review of data analytic tools for the clinical practice, they are presented as broad exmples of trends of implementations that can make significant impact in clinical medicine, research, administration, and health promotion.

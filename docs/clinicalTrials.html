@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Data Analytics for Clinical Practice and Research</title>
+  <meta name="description" content="Data Analytics for Clinical Practice and Research">
+  <meta name="generator" content="bookdown 0.7.13 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Data Analytics for Clinical Practice and Research" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Data Analytics for Clinical Practice and Research" />
+  
+  
+  
+
+<meta name="author" content="Gener J Aviles-Rodriguez">
+
+
+<meta name="date" content="2018-07-12">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+<link rel="next" href="interacting-with-the-national-library-of-medicine-.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.2/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.4/datatables.js"></script>
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Data Analytics in Medicine</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="clinicalTrials.html"><a href="clinicalTrials.html"><i class="fa fa-check"></i><b>2</b> Analysis of Clinical Trials with R</a><ul>
+<li class="chapter" data-level="2.1" data-path="clinicalTrials.html"><a href="clinicalTrials.html#why-use-r-in-clinical-trials-analysis-when-there-is-other-software-avilable."><i class="fa fa-check"></i><b>2.1</b> Why use R in Clinical Trials analysis when there is other software avilable.</a></li>
+<li class="chapter" data-level="2.2" data-path="clinicalTrials.html"><a href="clinicalTrials.html#simulated-clinical-trial"><i class="fa fa-check"></i><b>2.2</b> Simulated Clinical Trial</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="clinicalTrials.html"><a href="clinicalTrials.html#simulating-data"><i class="fa fa-check"></i><b>2.2.1</b> Simulating Data</a></li>
+<li class="chapter" data-level="2.2.2" data-path="clinicalTrials.html"><a href="clinicalTrials.html#visualization-of-data"><i class="fa fa-check"></i><b>2.2.2</b> Visualization of data</a></li>
+<li class="chapter" data-level="2.2.3" data-path="clinicalTrials.html"><a href="clinicalTrials.html#inferential-statistics"><i class="fa fa-check"></i><b>2.2.3</b> Inferential statistics</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="interacting-with-the-national-library-of-medicine-.html"><a href="interacting-with-the-national-library-of-medicine-.html"><i class="fa fa-check"></i><b>3</b> Interacting with the National Library of Medicine.</a><ul>
+<li class="chapter" data-level="3.1" data-path="interacting-with-the-national-library-of-medicine-.html"><a href="interacting-with-the-national-library-of-medicine-.html#searching-and-datamining-the-site."><i class="fa fa-check"></i><b>3.1</b> Searching and datamining the site.</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="interacting-with-the-national-library-of-medicine-.html"><a href="interacting-with-the-national-library-of-medicine-.html#initial-subsetting-and-downloading-from-website."><i class="fa fa-check"></i><b>3.1.1</b> Initial subsetting and downloading from website.</a></li>
+<li class="chapter" data-level="3.1.2" data-path="interacting-with-the-national-library-of-medicine-.html"><a href="interacting-with-the-national-library-of-medicine-.html#extracting-address-and-getting-rid-of-the-rest."><i class="fa fa-check"></i><b>3.1.2</b> Extracting address and getting rid of the rest.</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="interacting-with-the-national-library-of-medicine-.html"><a href="interacting-with-the-national-library-of-medicine-.html#visualization"><i class="fa fa-check"></i><b>3.2</b> Visualization</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="interacting-with-the-national-library-of-medicine-.html"><a href="interacting-with-the-national-library-of-medicine-.html#visualizing-results-in-a-map"><i class="fa fa-check"></i><b>3.2.1</b> Visualizing results in a map</a></li>
+<li class="chapter" data-level="3.2.2" data-path="interacting-with-the-national-library-of-medicine-.html"><a href="interacting-with-the-national-library-of-medicine-.html#mapping-frequency-of-trials-by-city-as-density."><i class="fa fa-check"></i><b>3.2.2</b> Mapping frequency of trials by city as density.</a></li>
+<li class="chapter" data-level="3.2.3" data-path="interacting-with-the-national-library-of-medicine-.html"><a href="interacting-with-the-national-library-of-medicine-.html#maping-the-heatmap-for-the-same-trials."><i class="fa fa-check"></i><b>3.2.3</b> Maping the Heatmap for the same trials.</a></li>
+<li class="chapter" data-level="3.2.4" data-path="interacting-with-the-national-library-of-medicine-.html"><a href="interacting-with-the-national-library-of-medicine-.html#isolating-trials-in-california"><i class="fa fa-check"></i><b>3.2.4</b> Isolating trials in California</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="machine-learning-for-the-clinical-work.html"><a href="machine-learning-for-the-clinical-work.html"><i class="fa fa-check"></i><b>4</b> Machine Learning for the Clinical Work</a><ul>
+<li class="chapter" data-level="4.1" data-path="machine-learning-for-the-clinical-work.html"><a href="machine-learning-for-the-clinical-work.html#preprocessing-data"><i class="fa fa-check"></i><b>4.1</b> Preprocessing Data</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="machine-learning-for-the-clinical-work.html"><a href="machine-learning-for-the-clinical-work.html#data-preparation"><i class="fa fa-check"></i><b>4.1.1</b> Data preparation</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="machine-learning-for-the-clinical-work.html"><a href="machine-learning-for-the-clinical-work.html#model-training"><i class="fa fa-check"></i><b>4.2</b> Model Training</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="machine-learning-for-the-clinical-work.html"><a href="machine-learning-for-the-clinical-work.html#clinical-importance-of-each-variable"><i class="fa fa-check"></i><b>4.2.1</b> Clinical importance of each variable</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/generaviles" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Analytics for Clinical Practice and Research</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="clinicalTrials" class="section level1">
+<h1><span class="header-section-number">Section 2</span> Analysis of Clinical Trials with R</h1>
+<div id="why-use-r-in-clinical-trials-analysis-when-there-is-other-software-avilable." class="section level2">
+<h2><span class="header-section-number">2.1</span> Why use R in Clinical Trials analysis when there is other software avilable.</h2>
+<p>R is an open source software widely accepted as the <a href="http://blog.revolutionanalytics.com/r-is-hot/"><em>lingua franca</em> of statistics</a>. Interestingly it’s use in clinical research has not happened at the same pace as in other disciplines. The field has gravitated mostly to propietary software like <a href="https://www.sas.com/en_us/software/stat.html">SAS</a> or <a href="https://www.ibm.com/analytics/spss-statistics-software">SPSS</a> to name a few.</p>
+<p>R offers very powerful analytical tools in a modular format (which keep the software as light as possible for the computer performing the analysis) while costing no money to be able to use it (most of the analytical software used in clinical research is proprietary and licences are very expensive). It can also be adjusted to specific needs through the generation of new functions and analytical pipelines.</p>
+<p>One of the main concerns with clinical trials is the regulatory compliance of the software to FDA rules. The R Foundation for Statistical Computing <a href="https://www.r-project.org/doc/R-FDA.pdf">published a document</a> offeing guidance in this specific topic, the document is updated regularly to stay relevant in the clinical trials environment.</p>
+</div>
+<div id="simulated-clinical-trial" class="section level2">
+<h2><span class="header-section-number">2.2</span> Simulated Clinical Trial</h2>
+<p>The following is a simulation of a clinical trial to exemplify the use of R in this context. The simulation will be of a simple two-arm clinical trial to compare a new drug to placebo on reducing diastolic blood pressure in hypertensive adult men.</p>
+<p>We will assume that an appropriate power analysis indicated the sample size required to detect a specified treatment difference is <span class="math inline">\(n=100\)</span> for both treatment groups. For these <span class="math inline">\(n\)</span> participants, we record their age and measure baeline diastolic blood pressure just before randomization.</p>
+<p>The new drug and placebo are administered and blood pressure is measured and recorded periodically thereafter, including at the end of the trial. Then the change in blood pressure between the endpoint and baselina may be calculated and analyzed as an index of the antihypertensive efficacy of the new drug.</p>
+<div id="simulating-data" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> Simulating Data</h3>
+<p>We are assuming that baseline diastolic blood pressures for the 200 recruited participants are normally distributed with a mean <span class="math inline">\(\mu = 100mmHg\)</span> and a standard deviation <span class="math inline">\(\sigma = 10mmHg\)</span>. Regarding age we are assuming a normally distribution with mean <span class="math inline">\(\mu = 50\)</span> years, with a standard deviation <span class="math inline">\(\sigma = 10\)</span> years. We are also assuming that the new drug will decrease diastolic blood pressure by 20 mmHg (<span class="math inline">\(\mu = 20\)</span>):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n      =<span class="st"> </span><span class="dv">100</span>
+mu     =<span class="st"> </span><span class="dv">100</span>
+sd     =<span class="st"> </span><span class="dv">10</span>
+mu.d   =<span class="st"> </span><span class="dv">20</span>
+age.mu =<span class="st"> </span><span class="dv">50</span>
+age.sd =<span class="st"> </span><span class="dv">10</span></code></pre></div>
+<div id="placebo-simulations" class="section level4">
+<h4><span class="header-section-number">2.2.1.1</span> Placebo simulations</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># setting seed for random number generation</span>
+<span class="kw">set.seed</span>(<span class="dv">123</span>)
+
+age         =<span class="st"> </span><span class="kw">rnorm</span>(n, age.mu, age.sd)
+bp.base     =<span class="st"> </span><span class="kw">rnorm</span>(n,mu,sd)
+bp.end      =<span class="st"> </span><span class="kw">rnorm</span>(n,mu,sd)
+<span class="co"># take the difference between endpoint and baseline</span>
+bp.diff     =<span class="st"> </span>bp.end<span class="op">-</span>bp.base
+<span class="co"># put the data together using &quot;cbind&quot; to column-bind</span>
+dat4placebo =<span class="st"> </span><span class="kw">round</span>(<span class="kw">cbind</span>(age,bp.base,bp.end,bp.diff))
+<span class="kw">head</span>(dat4placebo)</code></pre></div>
+<pre><code>##      age bp.base bp.end bp.diff
+## [1,]  44      93    122      29
+## [2,]  48     103    113      11
+## [3,]  66      98     97       0
+## [4,]  51      97    105       9
+## [5,]  51      90     96       5
+## [6,]  67     100     95      -4</code></pre>
+<p>In the previous table, the results of the first 6 (out of 100 from the placebo subset) simulated participants are shown.</p>
+</div>
+<div id="new-drug-simulations" class="section level4">
+<h4><span class="header-section-number">2.2.1.2</span> New drug simulations</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">age      =<span class="st"> </span><span class="kw">rnorm</span>(n, age.mu, age.sd)
+bp.base  =<span class="st"> </span><span class="kw">rnorm</span>(n,mu,sd)
+bp.end   =<span class="st"> </span><span class="kw">rnorm</span>(n,mu<span class="op">-</span>mu.d,sd)
+bp.diff  =<span class="st"> </span>bp.end<span class="op">-</span>bp.base
+dat4drug =<span class="st"> </span><span class="kw">round</span>(<span class="kw">cbind</span>(age,bp.base,bp.end,bp.diff))
+<span class="kw">head</span>(dat4drug)</code></pre></div>
+<pre><code>##      age bp.base bp.end bp.diff
+## [1,]  43      99     74     -25
+## [2,]  42      88     70     -18
+## [3,]  41      94     90      -3
+## [4,]  39     100     88     -12
+## [5,]  46     107     65     -42
+## [6,]  53      83     79      -4</code></pre>
+</div>
+<div id="integration-of-dataset" class="section level4">
+<h4><span class="header-section-number">2.2.1.3</span> Integration of dataset</h4>
+<p>Now to have all results in one structure we will stack the two data sets and add one more variable (column) to the resulting dataset, this new variable will be a nominal value indicating if the patient belongs to the placebo or new drug subgroups.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># dataframe holding all data</span>
+dat     =<span class="st"> </span><span class="kw">data.frame</span>(<span class="kw">rbind</span>(dat4placebo,dat4drug))
+<span class="co">#  &quot;trt&quot; as a factor for treatment.</span>
+dat<span class="op">$</span>trt =<span class="st"> </span><span class="kw">as.factor</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;Placebo&quot;</span>, <span class="st">&quot;Drug&quot;</span>), <span class="dt">each=</span>n))
+<span class="kw">head</span>(dat)</code></pre></div>
+<pre><code>##   age bp.base bp.end bp.diff     trt
+## 1  44      93    122      29 Placebo
+## 2  48     103    113      11 Placebo
+## 3  66      98     97       0 Placebo
+## 4  51      97    105       9 Placebo
+## 5  51      90     96       5 Placebo
+## 6  67     100     95      -4 Placebo</code></pre>
+</div>
+</div>
+<div id="visualization-of-data" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> Visualization of data</h3>
+<div id="basic-graphs" class="section level4">
+<h4><span class="header-section-number">2.2.2.1</span> Basic graphs</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(dat4placebo, <span class="dt">las=</span><span class="dv">1</span>, <span class="dt">main=</span><span class="st">&quot;Placebo&quot;</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(dat4drug, <span class="dt">las=</span><span class="dv">1</span>, <span class="dt">main=</span><span class="st">&quot;New Drug&quot;</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>From these graphs we can see that the data generated is indeed normally distributed.</p>
+</div>
+<div id="more-detailed-graphs" class="section level4">
+<h4><span class="header-section-number">2.2.2.2</span> More detailed graphs</h4>
+<p>Before moving to inferential statistical tools, a more detailed visualization is recomended, to undestand a bit more the dynamnics of the data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#load the lattice library</span>
+<span class="kw">library</span>(lattice)
+<span class="co"># call xyplot function and print it</span>
+<span class="kw">print</span>(<span class="kw">xyplot</span>(bp.diff<span class="op">~</span>age<span class="op">|</span>trt, <span class="dt">data=</span>dat,<span class="dt">xlab=</span><span class="st">&quot;Age&quot;</span>, 
+<span class="dt">strip=</span><span class="kw">strip.custom</span>(<span class="dt">bg=</span><span class="st">&quot;white&quot;</span>), 
+<span class="dt">ylab=</span><span class="st">&quot;Blood Pressure Difference&quot;</span>,<span class="dt">lwd=</span><span class="dv">3</span>,<span class="dt">cex=</span><span class="fl">1.3</span>,<span class="dt">pch=</span><span class="dv">20</span>,
+<span class="dt">type=</span><span class="kw">c</span>(<span class="st">&quot;p&quot;</span>, <span class="st">&quot;r&quot;</span>)))</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>When dealing with blood pressure (BP), there is a reasonable argument to link higher values of BP results with older participants, given the pathophysiology of blood preassure and the stiffening of arteries in older patients. The previous graph clarifies that, in this case, BP results are not being affected by age. Nevertheless, it seems the new drug did lower blood pressur in those who took it.</p>
+</div>
+</div>
+<div id="inferential-statistics" class="section level3">
+<h3><span class="header-section-number">2.2.3</span> Inferential statistics</h3>
+<p>After getting acquainted with the data through visualizations, a numerical analysis can be preformed. Staying with a linear approach, we start with a general statistical model as follows:</p>
+<p><span class="math display">\[y=\beta_0 + \beta_1 \times trt + \beta_2 \times age + \beta_3age \times trt + \epsilon\]</span></p>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(y=\)</span> change in blood pressure.</li>
+<li><span class="math inline">\(\beta_0, \beta_1, \beta_2, \beta_3=\)</span> parameters.</li>
+<li><span class="math inline">\(\epsilon =\)</span> error, assumed to be <a href="https://en.wikipedia.org/wiki/Independent_and_identically_distributed_random_variables">independently identically distributed</a>.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lm1 =<span class="st"> </span><span class="kw">lm</span>(bp.diff<span class="op">~</span>trt<span class="op">*</span>age, <span class="dt">data=</span>dat)
+<span class="kw">summary</span>(lm1)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = bp.diff ~ trt * age, data = dat)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -37.975  -8.883   0.037   8.488  45.678 
+## 
+## Coefficients:
+##                  Estimate Std. Error t value Pr(&gt;|t|)   
+## (Intercept)    -17.627094   6.242472  -2.824  0.00524 **
+## trtPlacebo      24.153635   9.586926   2.519  0.01255 * 
+## age             -0.076284   0.123209  -0.619  0.53654   
+## trtPlacebo:age  -0.006311   0.186973  -0.034  0.97311   
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 12.8 on 196 degrees of freedom
+## Multiple R-squared:  0.4684, Adjusted R-squared:  0.4602 
+## F-statistic: 57.56 on 3 and 196 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>Making the table easier to the eye:</p>
+<div class="figure">
+<img src="tableANOVA.png" />
+
+</div>
+<div id="diagnostics-for-model-assumptions" class="section level4">
+<h4><span class="header-section-number">2.2.3.1</span> Diagnostics for model assumptions</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">layout</span>(<span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">nrow=</span><span class="dv">2</span>))
+<span class="kw">plot</span>(lm1)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="interacting-with-the-national-library-of-medicine-.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-clinicalTrials.Rmd",
+"text": "Edit"
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+# Machine Learning for the Clinical Work
+
+
+[Machine learning ](https://en.wikipedia.org/wiki/Machine_learning) techniques can be used to analyze medical data and empower clinicians in their decision making processes. Eventhough these models have proven to be very effective in other fields, it is important to keep in mind that the application of machine learning, artificail intelligence and computational statistics to the clinical sciences should always come with close supervision by professionals who understand both approaches.
+
+This document shows some applications that could significantly impact the decision making process in the clinical context.
+
+## Preprocessing Data
+
+A database from diabetes in the [Pima Indians](https://www.kaggle.com/uciml/pima-indians-diabetes-database) is used for this example:
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+library(healthcareai)
+
+str(pima_diabetes)
+```
+
+Since the objective here is to find the algorithm that best classifies to predict who will have diabetes and who won´t, a subset of classification algorithms is trained and evaluated to find the best option.
+```{r}
+load("~/Dropbox/PhD UABC/Colaborations/Loma Linda/bookdown-demo-master/mlClinical.RData")
+#quick_models <- machine_learn(pima_diabetes, patient_id, outcome = diabetes)
+```
+
+Once the trainning process is finished, the highest performing algorithm can be selected:
+```{r}
+quick_models
+```
+It is important to highlight the [*area under a ROC*](http://gim.unmc.edu/dxtests/roc3.htm) result: 0.85, which can be interpreted as **good**. This means that we can proceed to a classification process with this model.
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+#predictions <- predict(quick_models)
+predictions
+```
+```{r}
+plot(predictions)
+```
+
+### Data preparation
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+split_data <- split_train_test(d = pima_diabetes,
+                               outcome = diabetes,
+                               p = .9,
+                               seed = 84105)
+
+prepped_training_data <- prep_data(split_data$train, patient_id, outcome = diabetes,
+                                   center = TRUE, scale = TRUE,
+                                   collapse_rare_factors = FALSE)
+```
+
+
+## Model Training
+```{r}
+#models <- tune_models(d = prepped_training_data,
+                     # outcome = diabetes,
+                    #  models = "RF",
+                    #  tune_depth = 25,
+                    #  metric = "PR")
+models
+```
+
+### Clinical importance of each variable
+```{r}
+get_variable_importance(models) %>%
+  plot()
+```
+
+This image is **very important for clinical use**, because it facilitates the visualization of each variable and how much it imapcts the final result (having diabetes). This analysis can be implemented to different pathologies.

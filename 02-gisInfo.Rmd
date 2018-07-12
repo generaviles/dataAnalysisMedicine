@@ -1,0 +1,167 @@
+# Interacting with the National Library of Medicine.
+
+
+This is an example of an approximation to the database of clinical trials maintained by the National Library of Medicine (NLM) of the National Institutes of Health (NIH). This tool facilitates the exploration and visualization of clinical trials recognized by the government and reported at [ClinicalTrials.gov](https://clinicaltrials.gov/).
+
+The rest of the document will show a step by step approximation to the process of datamining and visualization of the information.
+
+## Searching and datamining the site.
+
+### Initial subsetting and downloading from website.
+
+The following table shows the first 6 studies of a total of `r dim(c)[1]` found after subsetting accross the whole *ClinicalTrials.gov* dataset for maches with the terms "*acute* AND *care* AND *surgery*".
+
+Once the selection is located and downloaded, the next step is to extract and keep only the locations in the United States.
+```{r eval=FALSE, message=FALSE, include=FALSE, results='asis'}
+library(rclinicaltrials)
+# With the search parameters, download the data.  The search is meatn to download less than 100, if there are more than 100 results, Clincal Trials.gov will only give the first 100
+a <- clinicaltrials_download(query = c('term=acute AND care AND surgery','recr=Open', 'type=Intr', 'cntry1=NA%3AUS'), count = 200, include_results = TRUE)
+# We want to extract all the locations in the United States to 
+b <- a[1]$study_information$locations
+c <- b[which(b$address.country=='United States'), ]
+```
+```{r eval=FALSE, message=FALSE, include=FALSE}
+
+```
+```{r warning=FALSE, paged.print=FALSE}
+load("~/Dropbox/PhD UABC/Colaborations/Loma Linda/bookdown-demo-master/criticalCareClinicTrials.RData")
+# First five results of the search (about 1500+ locations):
+#library(DT)
+library(DT)
+#kable(head(c, 5), format = "html")
+datatable(head(c, 5))
+```
+
+### Extracting address and getting rid of the rest.
+```{r eval=FALSE, include=FALSE}
+d <- c[c(2, 3, 5)]
+d$address <- paste(d$address.city, d$address.state, d$address.country,sep=",")
+
+# Sumary of results with a frequency (cities with more than one clinical trial)
+library(plyr)
+e <- count(d, 'address')
+# then sort assending just to list these results
+e <- e[order(-e$freq),]
+```
+
+```{r message=FALSE, warning=FALSE, paged.print=TRUE, results='asis'}
+# Highest occurence 20 results from the search:
+library(knitr)
+test<-e
+kable(head(test, 10))
+```
+
+## Visualization
+
+<!--### Geolocation of cities-->
+
+**Using the [Google Maps API](https://cloud.google.com/maps-platform/) to obtain latitud and longitude coordinates from city names and states.**
+```{r eval=FALSE, message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
+library(ggmap)
+
+
+geocoded <- data.frame(e)
+
+# Loop through the addresses to get rid of "United States" since all the addresses are in the same country.
+for(i in 1:nrow(geocoded))
+{
+  # Print("Working...")
+  vectorText <- geocoded$address[i]
+  vectorText <- gsub(",United States","", vectorText)
+  geocoded$address[i] <-vectorText
+  
+}
+
+# Loop through the addressess to add columns of latitude, longitude and addressess according to GOOGLE MAPS API to compare.
+
+for(i in 1:nrow(geocoded))
+{
+  # Print("Working...")
+  result <- geocode(geocoded$address[i], output = "latlona", source = "google")
+  geocoded$lon[i] <- as.numeric(result[1])
+  geocoded$lat[i] <- as.numeric(result[2])
+  geocoded$geoAddress[i] <- as.character(result[3])
+}
+```
+
+### Visualizing results in a map
+
+
+Getting the map background with the right zoom.
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+# load the required libraries
+library(ggplot2)
+library(ggmap)
+# download the map background images
+map<-get_map(location='united states', zoom=4, maptype = "terrain",
+             source='google',color='color', force=TRUE)
+
+ggmap(map) +
+  theme(axis.line = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        plot.margin = unit(c(0, 0, -1, -1), 'lines')) +
+  xlab('') +
+  ylab('')
+```
+
+### Mapping frequency of trials by city as density.
+```{r eval=FALSE, message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
+# Getting rid of "United States" in e to match address in "geocoded"
+for(i in 1:nrow(e))
+{
+# Print("Working...")
+  vectorText <- e$address[i]
+  vectorText <- gsub(",United States","", vectorText)
+  e$address[i] <-vectorText
+  
+}
+
+g <- merge(e, geocoded,by="address")
+```
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+ggmap(map) + geom_point(
+  aes(x=lon, y=lat, show_guide = TRUE, colour=freq.x), 
+  data=g, alpha=.5, na.rm = T, size = g$freq.x*0.8)  + 
+  scale_color_gradient(low="green", high="red") +
+   theme(axis.line = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        plot.margin = unit(c(0, 0, -1, -1), 'lines')) +
+  xlab('') +
+  ylab('')
+```
+
+### Maping the Heatmap for the same trials.
+```{r eval=FALSE, include=FALSE}
+for(i in 1:nrow(d))
+{
+  # Print("Working...")
+  vectorText <- d$address[i]
+  vectorText <- gsub(",United States","", vectorText)
+  d$address[i] <-vectorText
+  
+}
+
+h <- merge(d, geocoded,by="address")
+```
+```{r}
+ggmap(map) + geom_density2d(data = h,  aes(x = lon, y = lat), size = 0.3)+
+  stat_density2d(data=h, aes(fill = ..level.., alpha = ..level..), geom="polygon", bins=15) +
+  scale_fill_gradient(low = "green", high = "red")+
+  scale_alpha(range = c(0.1, 0.3), guide = FALSE) +
+  theme(axis.line = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        plot.margin = unit(c(0, 0, -1, -1), 'lines')) +
+  xlab('') +
+  ylab('')
+```
+
+
+### Isolating trials in California
+```{r}
+#cali <- subset(c,c$address.state=="California")
+library(DT)
+datatable(cali[,1:10])
+```

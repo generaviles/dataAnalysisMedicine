@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Data Analytics for Clinical Practice and Research</title>
+  <meta name="description" content="Data Analytics for Clinical Practice and Research">
+  <meta name="generator" content="bookdown 0.7.13 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Data Analytics for Clinical Practice and Research" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Data Analytics for Clinical Practice and Research" />
+  
+  
+  
+
+<meta name="author" content="Gener J Aviles-Rodriguez">
+
+
+<meta name="date" content="2018-07-12">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+
+<link rel="next" href="clinicalTrials.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.2/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.4/datatables.js"></script>
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Data Analytics in Medicine</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="clinicalTrials.html"><a href="clinicalTrials.html"><i class="fa fa-check"></i><b>2</b> Analysis of Clinical Trials with R</a><ul>
+<li class="chapter" data-level="2.1" data-path="clinicalTrials.html"><a href="clinicalTrials.html#why-use-r-in-clinical-trials-analysis-when-there-is-other-software-avilable."><i class="fa fa-check"></i><b>2.1</b> Why use R in Clinical Trials analysis when there is other software avilable.</a></li>
+<li class="chapter" data-level="2.2" data-path="clinicalTrials.html"><a href="clinicalTrials.html#simulated-clinical-trial"><i class="fa fa-check"></i><b>2.2</b> Simulated Clinical Trial</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="clinicalTrials.html"><a href="clinicalTrials.html#simulating-data"><i class="fa fa-check"></i><b>2.2.1</b> Simulating Data</a></li>
+<li class="chapter" data-level="2.2.2" data-path="clinicalTrials.html"><a href="clinicalTrials.html#visualization-of-data"><i class="fa fa-check"></i><b>2.2.2</b> Visualization of data</a></li>
+<li class="chapter" data-level="2.2.3" data-path="clinicalTrials.html"><a href="clinicalTrials.html#inferential-statistics"><i class="fa fa-check"></i><b>2.2.3</b> Inferential statistics</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="interacting-with-the-national-library-of-medicine-.html"><a href="interacting-with-the-national-library-of-medicine-.html"><i class="fa fa-check"></i><b>3</b> Interacting with the National Library of Medicine.</a><ul>
+<li class="chapter" data-level="3.1" data-path="interacting-with-the-national-library-of-medicine-.html"><a href="interacting-with-the-national-library-of-medicine-.html#searching-and-datamining-the-site."><i class="fa fa-check"></i><b>3.1</b> Searching and datamining the site.</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="interacting-with-the-national-library-of-medicine-.html"><a href="interacting-with-the-national-library-of-medicine-.html#initial-subsetting-and-downloading-from-website."><i class="fa fa-check"></i><b>3.1.1</b> Initial subsetting and downloading from website.</a></li>
+<li class="chapter" data-level="3.1.2" data-path="interacting-with-the-national-library-of-medicine-.html"><a href="interacting-with-the-national-library-of-medicine-.html#extracting-address-and-getting-rid-of-the-rest."><i class="fa fa-check"></i><b>3.1.2</b> Extracting address and getting rid of the rest.</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="interacting-with-the-national-library-of-medicine-.html"><a href="interacting-with-the-national-library-of-medicine-.html#visualization"><i class="fa fa-check"></i><b>3.2</b> Visualization</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="interacting-with-the-national-library-of-medicine-.html"><a href="interacting-with-the-national-library-of-medicine-.html#visualizing-results-in-a-map"><i class="fa fa-check"></i><b>3.2.1</b> Visualizing results in a map</a></li>
+<li class="chapter" data-level="3.2.2" data-path="interacting-with-the-national-library-of-medicine-.html"><a href="interacting-with-the-national-library-of-medicine-.html#mapping-frequency-of-trials-by-city-as-density."><i class="fa fa-check"></i><b>3.2.2</b> Mapping frequency of trials by city as density.</a></li>
+<li class="chapter" data-level="3.2.3" data-path="interacting-with-the-national-library-of-medicine-.html"><a href="interacting-with-the-national-library-of-medicine-.html#maping-the-heatmap-for-the-same-trials."><i class="fa fa-check"></i><b>3.2.3</b> Maping the Heatmap for the same trials.</a></li>
+<li class="chapter" data-level="3.2.4" data-path="interacting-with-the-national-library-of-medicine-.html"><a href="interacting-with-the-national-library-of-medicine-.html#isolating-trials-in-california"><i class="fa fa-check"></i><b>3.2.4</b> Isolating trials in California</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="machine-learning-for-the-clinical-work.html"><a href="machine-learning-for-the-clinical-work.html"><i class="fa fa-check"></i><b>4</b> Machine Learning for the Clinical Work</a><ul>
+<li class="chapter" data-level="4.1" data-path="machine-learning-for-the-clinical-work.html"><a href="machine-learning-for-the-clinical-work.html#preprocessing-data"><i class="fa fa-check"></i><b>4.1</b> Preprocessing Data</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="machine-learning-for-the-clinical-work.html"><a href="machine-learning-for-the-clinical-work.html#data-preparation"><i class="fa fa-check"></i><b>4.1.1</b> Data preparation</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="machine-learning-for-the-clinical-work.html"><a href="machine-learning-for-the-clinical-work.html#model-training"><i class="fa fa-check"></i><b>4.2</b> Model Training</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="machine-learning-for-the-clinical-work.html"><a href="machine-learning-for-the-clinical-work.html#clinical-importance-of-each-variable"><i class="fa fa-check"></i><b>4.2.1</b> Clinical importance of each variable</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/generaviles" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Analytics for Clinical Practice and Research</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Data Analytics for Clinical Practice and Research</h1>
+<p class="author"><em>Gener J Aviles-Rodriguez</em></p>
+<p class="date"><em>2018-07-12</em></p>
+</div>
+<div id="introduction" class="section level1">
+<h1><span class="header-section-number">Section 1</span> Introduction</h1>
+<p>The following examples and implementations have been developed to be presented at the Division of Trauma &amp; Acute Care Surgery of the Loma Linda University Medical Center.</p>
+<p>Eventhough these implementations are not intended to be an exhaustive review of data analytic tools for the clinical practice, they are presented as broad exmples of trends of implementations that can make significant impact in clinical medicine, research, administration, and health promotion.</p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="clinicalTrials.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"text": "Edit"
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
