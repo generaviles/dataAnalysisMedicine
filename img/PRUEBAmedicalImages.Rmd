@@ -1,0 +1,82 @@
+# Medical Images
+<!---
+
+```{r}
+library(reticulate)
+use_python("/home/gener/anaconda3/bin/python")
+```
+```{python}
+import sys
+
+print(sys.executable)
+
+```
+
+```{python}
+import sys
+import os
+import tkinter as tk
+from tkinter import filedialog
+import numpy as np
+import time as time
+import datetime, time
+#import functions as fn
+import math
+import matplotlib.image as mpimg
+import pylab
+import time as time
+from numpy.linalg import eig
+from matplotlib import pyplot as plt
+from PIL import Image
+#from tabulate import tabulate
+from IPython.display import HTML, display
+```
+
+```{python}
+import matplotlib.image as mpimg
+from matplotlib import pyplot as plt
+
+snap5 = mpimg.imread('img/snap5.jpg')
+snap9 = mpimg.imread('img/snap9.jpg')
+
+plt.subplot(1,2,1)
+plt.imshow(snap5)
+plt.axis('off')
+
+plt.subplot(1,2,2)
+plt.imshow(snap9)
+plt.axis('off')
+
+#plt.show()
+```
+
+
+## Cargando las imagenes en espacio de color RGB
+```{r}
+snap5 <- mpimg$imread('img/snap5.jpg')
+snap9 <- mpimg$imread('img/snap9.jpg')
+
+plt$subplot(1,2,1)
+plt$imshow(snap5)
+plt$axis('off')
+
+plt$subplot(1,2,2)
+plt$imshow(snap9)
+plt$axis('off')
+```
+
+```{python}
+import matplotlib.pyplot as plt
+import numpy as np
+
+t = np.arange(0.0, 2.0, 0.01)
+s = 1 + np.sin(2*np.pi*t)
+
+plot = plt.plot(t,s)
+#plt.show()
+```
+
+```{r}
+py$snap5
+```
+
